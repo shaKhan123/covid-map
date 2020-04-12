@@ -1,1 +1,2 @@
-Test project for Covid-19 tracker built with react ofcourse.
+
+This is a small react project built to track covid cases around the world.
