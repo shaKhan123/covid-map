@@ -5,6 +5,10 @@ class SideBar extends Component {
     data: {},
   };
 
+  formatNumber = (num) => {
+    return num!=null? num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") : num;
+  };
+
   componentDidMount() {
     fetch("https://corona.lmao.ninja/v2/all")
       .then((res) => res.json())
@@ -29,37 +33,35 @@ class SideBar extends Component {
       tests,
     } = data;
 
-    const formatNumber = (num) => {
-        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-      };
+    
     return (
       <div className="side-bar">
            <div className="logo">STATS</div>
            
             <ul>
               <li>
-                <strong>Cases:</strong> <span className="case">{cases} </span>
+                <strong>Cases:</strong> <span className="case">{this.formatNumber(cases)} </span>
               </li>
               <li>
-                <strong>Active:</strong> <span className="case">{active}</span>
+                <strong>Active:</strong> <span className="case">{this.formatNumber(active)}</span>
               </li>
               <li>
-                <strong>Recovered:</strong> <span className="case">{recovered}</span>
+                <strong>Recovered:</strong> <span className="case">{this.formatNumber(recovered)}</span>
               </li>
               <li>
-                <strong>Critical:</strong> <span className="case">{critical}</span>
+                <strong>Critical:</strong> <span className="case">{this.formatNumber(critical)}</span>
               </li>
               <li>
-                <strong>Cases Today:</strong> <span className="case">{todayCases}</span>
+                <strong>Cases Today:</strong> <span className="case">{this.formatNumber(todayCases)}</span>
               </li>
               <li>
-                <strong>Tests:</strong> <span className="case">{tests}</span>
+                <strong>Tests:</strong> <span className="case">{this.formatNumber(tests)}</span>
               </li>
               <li>
-                <strong>Deaths:</strong> <span className="case">{deaths}</span>
+                <strong>Deaths:</strong> <span className="case">{this.formatNumber(deaths)}</span>
               </li>
               <li>
-                <strong>Deaths Today:</strong> <span className="case">{todayDeaths}</span>
+                <strong>Deaths Today:</strong> <span className="case">{this.formatNumber(todayDeaths)}</span>
               </li>
             </ul>
          <div className="footer">ksha786000@gmail.com</div>

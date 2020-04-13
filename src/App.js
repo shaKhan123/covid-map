@@ -13,6 +13,10 @@ class App extends Component {
     data: [],
   };
 
+   formatNumber = (num) => {
+    return num!=null? num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") : num;
+  };
+
   componentDidMount() {
     fetch("https://corona.lmao.ninja/countries")
       .then((res) => res.json())
@@ -25,9 +29,7 @@ class App extends Component {
 
   render = () => {
     const { data = [] } = this.state;
-    const formatNumber = (num) => {
-      return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-    };
+  
     return (
       <div className="map">
         <Map
@@ -63,12 +65,12 @@ class App extends Component {
                 
                   <Popup>
                     <ul>
-                      <li><strong>cases: </strong> {formatNumber(cases)}</li>
-                      <li><strong>deaths:</strong> {formatNumber(deaths)}</li>
-                      <li><strong>recovered:</strong> {formatNumber(recovered)}</li>
-                      <li><strong>cases today:</strong> {formatNumber(todayCases)}</li>
-                      <li><strong>deaths today:</strong> {formatNumber(todayDeaths)}</li>
-                      <li><strong>tests:</strong> {formatNumber(tests)}</li>
+                      <li><strong>cases: </strong> {this.formatNumber(cases)}</li>
+                      <li><strong>deaths:</strong> {this.formatNumber(deaths)}</li>
+                      <li><strong>recovered:</strong> {this.formatNumber(recovered)}</li>
+                      <li><strong>cases today:</strong> {this.formatNumber(todayCases)}</li>
+                      <li><strong>deaths today:</strong> {this.formatNumber(todayDeaths)}</li>
+                      <li><strong>tests:</strong> {this.formatNumber(tests)}</li>
                     </ul>
                   </Popup>
                  
