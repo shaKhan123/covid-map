@@ -48,10 +48,10 @@ const Chart = ({ country }) => {
   const lineOptions = {
     maintainAspectRatio: true,
     responsive: true,
-    // title: {
-    //   display: true,
-    //   text: "Chart Describing Infected, Recoverd and Deaths",
-    // },
+     title: {
+       display: true,
+       text: "Covid Logarithmic Chart",
+     },
     scales: {
       xAxes: [
         {
