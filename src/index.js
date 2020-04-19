@@ -9,8 +9,8 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
-    <SideBar />
+     <Header />
+    <SideBar /> 
     <App />
   </React.StrictMode>,
   document.getElementById('root')

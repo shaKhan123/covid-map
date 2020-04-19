@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Moment from 'moment';
 import './SideBar.css'; 
 class SideBar extends Component {
   state = {
@@ -9,11 +10,12 @@ class SideBar extends Component {
     return num!=null? num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") : num;
   };
 
+
   componentDidMount() {
     fetch("https://corona.lmao.ninja/v2/all")
       .then((res) => res.json())
       .then((resdata) => {
-        console.log(resdata);
+        //console.log(resdata);
         this.setState({ data: resdata });
       })
       .catch(console.log);
@@ -23,6 +25,7 @@ class SideBar extends Component {
   render() {
     const { data = {} } = this.state;
     const {
+      updated,
       cases,
       todayCases,
       deaths,
@@ -39,6 +42,7 @@ class SideBar extends Component {
            <div className="logo">STATS</div>
            
             <ul>
+    
               <li>
                 <strong>Cases:</strong> <span className="case">{this.formatNumber(cases)} </span>
               </li>

@@ -1,0 +1,20 @@
+.container {
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(17, 22, 31);
+}
+
+
+@media only screen and (max-width: 700px) {
+  .container {
+    margin: 0 10%;
+    height: 1000px; background-color: black;
+  }
+.chart{
+  height: 1000px;
+  background-color: rgb(43, 48, 53);
+}
+  
+}
