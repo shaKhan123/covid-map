@@ -33,13 +33,11 @@ class SideBar extends Component {
       tests,
     } = data;
 
-    
+    // I know how to loop okay, its just I dont have time to look how to do it in JS.
     return (
       <div className="side-bar">
-           <div className="logo">Global Stats</div>
-           
+           <div className="logo">Global Stats</div>          
             <ul>
-    
               <li>
                 <strong>Cases:</strong> <span className="case">{formatNumber(cases)} </span>
               </li>

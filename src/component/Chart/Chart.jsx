@@ -46,7 +46,7 @@ const Chart = ({ country }) => {
     responsive: true,
     title: {
       display: true,
-      text: "Select a country to see cases in last 60 days.",
+      text: "Covid-19 cases in last 60 days.",
     },
     scales: {
       xAxes: [
