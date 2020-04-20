@@ -1,37 +1,20 @@
 import React, { Component } from "react";
 import styles from "./CovidMap.module.css";
 import { Map, CircleMarker, TileLayer, Popup } from "react-leaflet";
-import Moment from "moment";
+import { formatNumber, formatDate } from '../../util/common'
 
 import "leaflet/dist/leaflet.css";
-import { fetchData } from "../../api";
 
 class CovidMap extends Component {
 
-  formatNumber = (num) => {
-    return num != null
-      ? num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
-      : num;
-  };
-
-  formatDate = (date) => {
-    const timestamp = Date(date);
-    return Moment(timestamp).format("lll");
-    // Outputs as "Feb 17, 2017 1:30 PM"
-  };
-
-  /*  async componentDidMount() {
-    const fetchedData = await fetchData();
-     this.setState({ data: fetchedData });
-  } */
 
   render = () => {
     const data = this.props.data;
 
     return (
-      <div className="map">
+      <div>
         <Map
-          style={{ height: "80vh", width: "100%", zIndex: 0, top: 2 }}
+          style={{ height: "75vh", width: "100%", zIndex: 0, top: 2 }}
           zoom={2}
           center={[0.09, 20.505]}
         >
@@ -64,27 +47,27 @@ class CovidMap extends Component {
                 <Popup>
                   <ul>
                     <li>
-                      <strong>{this.formatDate(updated)} </strong>
+                      <strong>{formatDate(updated)} </strong>
                     </li>
                     <li>
-                      <strong>cases: </strong> {this.formatNumber(cases)}
+                      <strong>cases: </strong> {formatNumber(cases)}
                     </li>
                     <li>
-                      <strong>deaths:</strong> {this.formatNumber(deaths)}
+                      <strong>deaths:</strong> {formatNumber(deaths)}
                     </li>
                     <li>
-                      <strong>recovered:</strong> {this.formatNumber(recovered)}
+                      <strong>recovered:</strong> {formatNumber(recovered)}
                     </li>
                     <li>
                       <strong>cases today:</strong>{" "}
-                      {this.formatNumber(todayCases)}
+                      {formatNumber(todayCases)}
                     </li>
                     <li>
                       <strong>deaths today:</strong>{" "}
-                      {this.formatNumber(todayDeaths)}
+                      {formatNumber(todayDeaths)}
                     </li>
                     <li>
-                      <strong>tests:</strong> {this.formatNumber(tests)}
+                      <strong>tests:</strong> {formatNumber(tests)}
                     </li>
                   </ul>
                 </Popup>

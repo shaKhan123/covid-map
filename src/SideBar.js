@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import Moment from 'moment';
+import { formatNumber } from './util/common'
 import './SideBar.css'; 
+
 class SideBar extends Component {
   state = {
     data: {},
-  };
-
-  formatNumber = (num) => {
-    return num!=null? num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") : num;
   };
 
 
@@ -39,33 +36,33 @@ class SideBar extends Component {
     
     return (
       <div className="side-bar">
-           <div className="logo">STATS</div>
+           <div className="logo">Global Stats</div>
            
             <ul>
     
               <li>
-                <strong>Cases:</strong> <span className="case">{this.formatNumber(cases)} </span>
+                <strong>Cases:</strong> <span className="case">{formatNumber(cases)} </span>
               </li>
               <li>
-                <strong>Active:</strong> <span className="case">{this.formatNumber(active)}</span>
+                <strong>Active:</strong> <span className="case">{formatNumber(active)}</span>
               </li>
               <li>
-                <strong>Recovered:</strong> <span className="case">{this.formatNumber(recovered)}</span>
+                <strong>Recovered:</strong> <span className="case">{formatNumber(recovered)}</span>
               </li>
               <li>
-                <strong>Critical:</strong> <span className="case">{this.formatNumber(critical)}</span>
+                <strong>Critical:</strong> <span className="case">{formatNumber(critical)}</span>
               </li>
               <li>
-                <strong>Cases Today:</strong> <span className="case">{this.formatNumber(todayCases)}</span>
+                <strong>Cases Today:</strong> <span className="case">{formatNumber(todayCases)}</span>
               </li>
               <li>
-                <strong>Tests:</strong> <span className="case">{this.formatNumber(tests)}</span>
+                <strong>Tests:</strong> <span className="case">{formatNumber(tests)}</span>
               </li>
               <li>
-                <strong>Deaths:</strong> <span className="case">{this.formatNumber(deaths)}</span>
+                <strong>Deaths:</strong> <span className="case">{formatNumber(deaths)}</span>
               </li>
               <li>
-                <strong>Deaths Today:</strong> <span className="case">{this.formatNumber(todayDeaths)}</span>
+                <strong>Deaths Today:</strong> <span className="case">{formatNumber(todayDeaths)}</span>
               </li>
             </ul>
          <div className="footer">ksha786000@gmail.com</div>

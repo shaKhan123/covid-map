@@ -4,7 +4,6 @@ import { Line } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
 const Chart = ({ country }) => {
-
   const [dailyData, setDailyData] = useState({});
   useEffect(() => {
     const fetchMyAPI = async () => {
@@ -15,44 +14,40 @@ const Chart = ({ country }) => {
     fetchMyAPI();
   }, [country, setDailyData]);
 
-  const formatNumber = (num) => {
-    return num != null
-      ? num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
-      : num;
-  };
-
   const lineChart = {
     labels: dailyData.reportedDate,
     datasets: [
       {
-        data:  dailyData.totalCases,
+        data: dailyData.totalCases,
         label: "Infected",
         borderColor: "#3333ff",
         fill: true,
+        pointRadius: 2,
       },
       {
         data: dailyData.totalRecoverd,
         label: "Recovered",
         borderColor: "green",
         fill: true,
+        pointRadius: 2,
       },
       {
         data: dailyData.totalDeaths,
         label: "Deaths",
         borderColor: "red",
         fill: true,
+        pointRadius: 2,
       },
     ],
   };
 
   const lineOptions = {
-    
     maintainAspectRatio: false,
     responsive: true,
-     title: {
-       display: true,
-       text: "Covid Logarithmic Chart",
-     },
+    title: {
+      display: true,
+      text: "Select a country to see cases in last 60 days.",
+    },
     scales: {
       xAxes: [
         {
