@@ -1,20 +1,20 @@
 .container {
   padding-top: 40px;
+  padding-bottom: 20px;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-right: 13%;
-
+  height: 80vh;
   background-color: rgb(17, 22, 31);
 }
 
-
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 770px) {
+    
   .container {
-    margin: 0 10%;
+    padding:0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    height: 50vh;
   }
-.chart{
-  height: 1000px;
-}
-  
 }

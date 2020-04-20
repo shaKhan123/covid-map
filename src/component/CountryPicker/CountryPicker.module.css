@@ -1,9 +1,15 @@
 .formControl {
     width: 30%;
     margin-bottom: 30px !important;
-    text-align: center;
   }
 
   .default{
     color: blanchedalmond;
+  }
+
+  @media only screen and (max-width: 770px) {
+    .formControl {
+      width: 80%;
+      margin: 3%;
+    }
   }

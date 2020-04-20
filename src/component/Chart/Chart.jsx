@@ -46,7 +46,8 @@ const Chart = ({ country }) => {
   };
 
   const lineOptions = {
-    maintainAspectRatio: true,
+    
+    maintainAspectRatio: false,
     responsive: true,
      title: {
        display: true,
